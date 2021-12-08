@@ -1,0 +1,12 @@
+# ninja log v5
+39	1259	6605832457089358	build.ninja	fbc13f07ebadb30e
+4	771	6606127742489817	CMakeFiles/Sistema_Vendas.dir/main.c.obj	4a3feec0573452f2
+772	1513	6606127748701246	Sistema_Vendas.exe	367a89c04dedf8af
+5	579	6606128073400377	CMakeFiles/Sistema_Vendas.dir/main.c.obj	4a3feec0573452f2
+580	1390	6606128079569418	Sistema_Vendas.exe	367a89c04dedf8af
+24	1199	6606140273928553	CMakeFiles/Sistema_Vendas.dir/main.c.obj	4a3feec0573452f2
+1200	2029	6606140282356000	Sistema_Vendas.exe	367a89c04dedf8af
+5	645	6606141777778122	CMakeFiles/Sistema_Vendas.dir/main.c.obj	4a3feec0573452f2
+648	1106	6606141782296041	Sistema_Vendas.exe	367a89c04dedf8af
+4	796	6606142873967560	CMakeFiles/Sistema_Vendas.dir/main.c.obj	4a3feec0573452f2
+799	1502	6606142878734801	Sistema_Vendas.exe	367a89c04dedf8af

@@ -22,11 +22,12 @@ int main( ) {
     char idPedido[100];
     int qtdPedidos = 0;
     double valorTotalPedido = 0;
+    int codAux = 0, flag = 0;
 
     //variáveis para clientes
     int qtdClientes = 1;
-    char nomeCliente[qtdClientes][50], codCliente[10], ruaCliente[50], bairroCliete[50], cidadeCliente[50];
-    int cpfCliente, telCliente, codBusca;
+    char nomeCliente[qtdClientes][50], codCliente[qtdClientes][10];
+    int cpfCliente[qtdClientes][12], telCliente[qtdClientes][11], codBusca;
 
     //variáveis para produtos
     double valorProduto = 0, valorAlteracao = 0, valorMaiorProduto = 0, valorMenorProduto = 0, codProduto = 0;
@@ -69,35 +70,40 @@ int main( ) {
             if (opcao == 1) {
                 printf("************  CADASTRAR CLIENTE  ***********\n");
                 printf("********************************************\n");
-                printf("Codigo do cliente: ");
-                scanf("%s", codCliente);
 
-                printf("Nome do cliente: ");
-                for(int i  = 0; i < qtdClientes; i++){
+
+                for(int i = 0; i < qtdClientes; i++){
+                    printf("Codigo do cliente: ");
+                    scanf("%s", codCliente[i]);
+
+                    printf("Nome do cliente: ");
                     gets(nomeCliente[i]);
+
+                    printf("CPF do cliente: ");
+                    scanf("%d", cpfCliente[i]);
+
+                    printf("Telefone do cliente: ");
+                    scanf("%d", telCliente[i]);
+
                 }
-
-                printf("CPF do cliente: ");
-                scanf("%d", cpfCliente);
-
-                printf("Telefone do cliente: ");
-                scanf("%d", telCliente);
 
                 //mostra as informações para ver se está correta
                 printf("************  DADOS CADASTRADOS  ***********\n");
                 printf("********************************************\n");
-                printf("Código do cliente: %s \n", codCliente);
-                for(int i = 0; i < qtdClientes; i++){
-                    printf("Nome do cliente: %s \n", nomeCliente[i]);
-                }
-                printf("CPF do cliente: %d \n", cpfCliente);
-                printf("Telefone do cliente: %d \n", telCliente);
 
-                //printf("Deseja salvar? (s/n): \n");
+                for(int i = 0; i < qtdClientes; i++){
+                    printf("Código do cliente: %s \n", codCliente[i]);
+                    printf("CPF do cliente: %d \n", cpfCliente[i]);
+                    printf("Telefone do cliente: %d \n", telCliente[i]);
+                }
 
             }
             else if(opcao == 2){
-                printf("Função a ser implementada!");
+                printf("************  CLIENTES CADASTRADOS  ***********\n");
+                printf("************************************************\n");
+                for(int i = 0; i < qtdClientes; i++){
+                    printf("%d - %s", i + 1, nomeCliente[i]);
+                }
             }
             else if(opcao == 3){
                 printf("Função a ser implementada!");
@@ -119,8 +125,7 @@ int main( ) {
             printf("************  GERENCIAR PEDIDOS   ***********\n");
             printf("*  1-  Cadastrar pedido                     *\n");
             printf("*  2-  Listar pedidos de um cliente         *\n");
-            printf("*  3-  Listar pedidos de um determinado dia *\n");
-            printf("*  4-  Voltar ao menu principal             *\n");
+            printf("*  3-  Voltar ao menu principal             *\n");
             printf("*********************************************\n");
 
             // recebe a opção desejada
@@ -130,13 +135,21 @@ int main( ) {
             if(opcao == 1){
                 //adiciona um novo pedido
                 printf("Código do cliente que está fazendo o pedido: \n");
-                scanf("%s", codCliente);
+                scanf("%s", codAux);
 
-                printf("Quantidade de produtos pedidos: ");
-                scanf("%d", &qtdPedidos);
+                for(int i = 0; i < qtdClientes; i++){
+                    if((char *) codAux == codCliente[i]){
+                        flag = 1;
+                    }
+                }
 
-                printf("Código do produto: \n");
-                scanf("%s", codProduto);
+                if(flag){
+                    printf("Quantidade de produtos pedidos: ");
+                    scanf("%d", &qtdPedidos);
+
+                    printf("Código do produto: \n");
+                    scanf("%s", codProduto);
+                }
 
                 //verifica e armazena qual o maior valor do produtose o nome dele
                 if (valorProduto > valorMaiorProduto) {
@@ -150,9 +163,9 @@ int main( ) {
                 //imprime os dados para confirmação
                 printf("************   DADOS DO PEDIDO   ***********\n");
                 printf("********************************************\n");
-                printf("Código do cliente: %s \n", codCliente);
-                printf("Código do produto: %s \n", codProduto);
-                printf("Quantidade do produto: %s \n", qtdPedidos);
+                printf("Código do cliente: %d \n", codAux);
+                printf("Código do produto: %f \n", codProduto);
+                printf("Quantidade do produto: %d \n", qtdPedidos);
                 //calcula o valor total do pedido
                 valorTotalPedido = valorProduto * qtdPedidos;
                 printf("Valor total do pedido: R$%.2lf \n", valorTotalPedido);
@@ -162,9 +175,6 @@ int main( ) {
                 printf("Função a ser implementada!");
             }
             else if (opcao == 3) {
-                printf("Função a ser implementada!");
-            }
-            else if (opcao == 4) {
                 printf("Função a ser implementada!");
             }
 
@@ -185,10 +195,10 @@ int main( ) {
             if(opcao == 1){
                 //adiciona um novo produto
                 printf("Id do produto: \n");
-                scanf("%s", &idProduto);
+                scanf("%s", idProduto);
 
                 printf("Nome do produto: \n");
-                scanf("%s", nomeProduto[50]);
+                scanf("%s", nomeProduto);
 
                 printf("Valor do produto: \n");
                 scanf("%lf", &valorProduto);

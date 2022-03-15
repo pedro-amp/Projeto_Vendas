@@ -7,8 +7,8 @@
 
 typedef struct {
     char nomeProduto[30], nomeAlteracao[30], idProduto[10], idAlteracao[10], nomeMaiorProduto[30], nomeMenorProduto[30];
-    double valorProduto, valorAlteracao, valorMaiorProduto, valorMenorProduto, codProduto;
-    int estoqueProdutos;
+    double valorProduto, valorAlteracao, codProduto;
+    int estoqueProdutos[30];
 }infoProdutos;
 
 typedef struct {

@@ -9,9 +9,8 @@ int qtd_pedidos = 0;
 
 int menu_pedidos(){
     printf("+++++++++++++++++++++++++++++++\n");
-    printf("++++ 1- Cadastrar pedido  ++++\n");
-    printf("++++ 2- Listar pedidos    ++++\n");
-    printf("++++ 3- Voltar             ++++\n");
+    printf("++++ 1- Cadastrar pedido   ++++\n");
+    printf("++++ 2- Voltar             ++++\n");
     printf("+++++++++++++++++++++++++++++++\n");
 
     printf("Digite uma opcao:");
@@ -22,18 +21,16 @@ int menu_pedidos(){
 
 void cadastrar_pedido(){
 
-    /*// criando a variável ponteiro para o arquivo
+    // criando a variável ponteiro para o arquivo
     FILE *pont_arq;
 
     //abrindo o arquivo
     pont_arq = fopen("arquivo.txt", "a");
 
-    // fechando arquivo
-    fclose(pont_arq);
-
-    //mensagem para o usuário
-    printf("O arquivo foi criado com sucesso!\n");
-    system("pause");*/
+    //error ao abrir o arquivo
+    if(pont_arq == NULL){
+        printf("Nao foi possivel abrir o arquivo!\n");
+    }
 
     flag_cliente = 0;
     flag_produto = 0;
@@ -83,19 +80,21 @@ void cadastrar_pedido(){
                 printf("************   RESUMO DO PEDIDO   ***********\n");
                 printf("********************************************\n");
                 printf("Cliente: (%s - %s)\n", listaCliente[pos_cliente].nomeCliente, listaCliente[pos_cliente].codCLiente);
-                /*fprintf(filePedidos, "%s\n", listaCliente[pos_cliente].nomeCliente);
-                fprintf(filePedidos, "%s\n", listaCliente[pos_cliente].codCLiente);*/
+                fprintf(pont_arq, "%s\n", listaCliente[pos_cliente].nomeCliente);
+                fprintf(pont_arq, "%s\n", listaCliente[pos_cliente].codCLiente);
 
                 printf("Codigo do produto: %d \n", listaProdutos->idProduto);
-                //fprintf(filePedidos, "%d\n", listaPedidos->idPedido);
+                fprintf(pont_arq, "%d\n", listaPedidos->idPedido);
 
                 printf("Quantidade do produto: %d \n", qtd_pedidos);
-                //fprintf(filePedidos, "%d\n", qtd_pedidos);
+                fprintf(pont_arq, "%d\n", qtd_pedidos);
 
                 printf("Valor total do pedido: R$%.2lf \n", listaPedidos->valorTotal);
-                //fprintf(filePedidos, "%.2f", listaPedidos->valorTotal);
+                fprintf(pont_arq, "%.2f\n", listaPedidos->valorTotal);
 
-                //system("pause");
+                fclose(pont_arq);
+
+                system("pause");
             }
 
         }else{

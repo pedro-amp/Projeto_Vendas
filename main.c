@@ -19,36 +19,43 @@ int main() {
     listaPedidos = malloc(qtd * sizeof (infoPedidos));
 
     while(1){
+
+        opcao = 0;
         printf("\n\n");
         opcao = menu_principal();
 
         //CLIENTES
         if(opcao == 1){
 
+            opcao = 0;
             printf("\n\n");
             menu_clientes();
 
             //CADASTRAR CLIENTE
             if(opcao == 1){
 
+                opcao = 0;
                 printf("\n\n");
                 cadastrar_cliente();
 
             //LISTAR CLIENTES
             }else if(opcao == 2){
 
+                opcao = 0;
                 printf("\n\n");
                 listar_clientes();
 
             //BUSCAR CLIENTE
             }else if(opcao == 3){
 
+                opcao = 0;
                 printf("\n\n");
                 buscar_cliente();
 
             //ATUALIZAR CLIENTE
             }else if(opcao == 4){
 
+                opcao = 0;
                 printf("\n\n");
                 atualizar_cliente();
 
@@ -68,17 +75,20 @@ int main() {
         //PRODUTOS
         }else if(opcao == 2){
 
+            opcao = 0;
             printf("\n\n");
             opcao = menu_produto();
 
             if(opcao == 1){
 
+                opcao = 0;
                 //CADASTRAR PRODUTOS
                 printf("\n\n");
                 cadastrar_produtos();
 
             }else if(opcao == 2){
 
+                opcao = 0;
                 //LISTAR PRODUTOS
                 printf("\n\n");
                 listar_produtos();
@@ -100,22 +110,19 @@ int main() {
         //PEDIDO
         }else if(opcao == 3){
 
+            opcao = 0;
             printf("\n\n");
             menu_pedidos();
 
             if(opcao == 1){
 
+                opcao = 0;
                 //CADASTRAR PEDIDO
                 printf("\n\n");
                 cadastrar_pedido();
 
             }else if(opcao == 2){
 
-                //LISTAR PEDIDO
-
-            }else if(opcao == 3){
-
-                //OPCAO INVALIDA
                 printf("Voltando...\n");
                 Sleep(1000);
 
